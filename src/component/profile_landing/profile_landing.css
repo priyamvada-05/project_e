@@ -1,0 +1,46 @@
+*{
+	font-weight: 10 !important;
+}
+
+h6{
+	margin: 0;
+	padding: 0;
+}
+.profilelanding{
+	padding-top: 7rem;
+	background-color: #F0F2F3 ;
+	height: 100%;
+	width: 82%;
+	margin-left: 15rem;
+}
+
+.profilelanding .container .row-custom .col-custom{
+	margin-top: 15px;
+}
+
+
+@media (max-width: 500px){
+	.profilelanding{
+	padding-top: 4rem;
+	width: 100%;
+	margin-left: 0rem;
+}
+
+.profilelanding .container .row-custom .col-custom{
+
+}
+
+}
+
+@media (min-width: 700px) and (max-width: 1000px){
+	.profilelanding{
+	padding-top: 6rem;
+	width: 100vw;
+	margin-left: 0rem;
+	
+}
+
+.profilelanding .container .row-custom .col-custom{
+	width: 100%;
+}
+}

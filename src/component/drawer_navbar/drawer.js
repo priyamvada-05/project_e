@@ -17,6 +17,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import Avatar from '@material-ui/core/Avatar';
+import { deepOrange, deepPurple } from '@material-ui/core/colors';
+import { withRouter} from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -78,9 +81,19 @@ const useStyles = makeStyles((theme) => ({
     }),
     marginLeft: 0,
   },
+  purple: {
+    color: theme.palette.getContrastText(deepPurple[500]),
+    backgroundColor: deepPurple[500],
+    width: theme.spacing(9),
+    height: theme.spacing(9),
+    margin:'0 auto',
+  },
+  userName: {
+    textAlign: 'center'
+  },
 }));
 
-export default function PersistentDrawerLeft(props) {
+const PersistentDrawer=(props)=> {
 
   const classes = useStyles();
   const theme = useTheme();
@@ -110,17 +123,28 @@ export default function PersistentDrawerLeft(props) {
       >
         <Toolbar />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+            <ListItem>
+              <Avatar  className={classes.purple} />
             </ListItem>
-          ))}
+
+            <ListItem>
+              <ListItemText className={classes.userName} primary='User Name' />
+            </ListItem>
+          
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
+          {['Home Page', 'Analytics', 'Profile'].map((text, index) => (
+            <ListItem button key={text} onClick={()=> {
+              if(text === 'Home Page'){
+                props.history.push('/')
+              }
+              else{
+                let s= text.toLowerCase()
+                props.history.push(`/${s}`)
+              }
+              
+            }}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
@@ -131,3 +155,5 @@ export default function PersistentDrawerLeft(props) {
     </div>
   );
 }
+
+export default withRouter(PersistentDrawer)

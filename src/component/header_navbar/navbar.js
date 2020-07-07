@@ -188,7 +188,7 @@ export default function PrimarySearchAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
+            ECCO Project
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

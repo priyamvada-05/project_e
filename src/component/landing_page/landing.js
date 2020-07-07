@@ -41,7 +41,7 @@ const Landing = ()=>{
 										<TrendingUpIcon className='icon_paper'/>
 									</Paper>
 									<div className='details'>
-										<h5>Suscription</h5>
+										<h5>Subscription</h5>
 										<h3>500</h3>
 									</div>
 									<h6 className='progress_details'>Better than last week (50%)</h6>
